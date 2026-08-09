@@ -13,8 +13,8 @@ window.STORYLEAF_CONFIG = {
     deviceEntry: "658019721",    // "Device model"
   },
   featureForm: {
-    formId: "",          // Google Form id for feature requests
-    versionEntry: "",    // entry id of the "App version" field (optional)
+    formId: "1FAIpQLSdD0zacEzS9a8VDHr6THJF_jc6Yi-7OMsPaLC3tfm0v0_sHew",
+    versionEntry: "2142103561",  // "App version"
   },
   // Shown while the forms above are not configured yet.
   // (must be a PUBLIC repository — private repos return 404 to visitors)
