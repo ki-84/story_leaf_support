@@ -7,10 +7,10 @@
 // FORM_ID is the long token after /d/e/, and each entry.NNNNN is a field id.
 window.STORYLEAF_CONFIG = {
   bugForm: {
-    formId: "",          // Google Form id for bug reports
-    versionEntry: "",    // entry id of the "App version" short-answer field
-    osEntry: "",         // entry id of the "iOS version" field (optional)
-    deviceEntry: "",     // entry id of the "Device model" field (optional)
+    formId: "1FAIpQLScVOmrAYcPK1bubkfPnJQXCduVr7JS7EfN-ZqOAwZRomJ01zQ",
+    versionEntry: "1394453723",  // "App version"
+    osEntry: "280586603",        // "iOS version"
+    deviceEntry: "658019721",    // "Device model"
   },
   featureForm: {
     formId: "",          // Google Form id for feature requests
