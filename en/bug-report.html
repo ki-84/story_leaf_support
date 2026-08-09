@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story Leaf — Report a Bug</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../config.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <p class="eyebrow">Story Leaf 🍃</p>
+  <h1>Report a Bug</h1>
+  <p>Thank you for helping us improve Story Leaf. The details below were
+  attached automatically when you opened this page from the app.</p>
+</header>
+
+<div class="meta" id="env">Collecting app info…</div>
+
+<p id="action" style="margin-top: 16px;"></p>
+<p class="note" id="fallback"></p>
+
+<script>
+const params = new URLSearchParams(location.search);
+const version = params.get("version") || "unknown";
+const build = params.get("build") || "";
+const os = params.get("os") || "";
+const device = params.get("device") || "";
+
+document.getElementById("env").textContent =
+  "App version: " + version + (build ? " (" + build + ")" : "")
+  + (os ? " / iOS " + os : "")
+  + (device ? " / " + device : "");
+
+const cfg = window.STORYLEAF_CONFIG.bugForm;
+const action = document.getElementById("action");
+if (cfg.formId) {
+  const url = new URL("https://docs.google.com/forms/d/e/" + cfg.formId + "/viewform");
+  url.searchParams.set("usp", "pp_url");
+  if (cfg.versionEntry) {
+    url.searchParams.set("entry." + cfg.versionEntry,
+                         version + (build ? " (" + build + ")" : ""));
+  }
+  if (cfg.osEntry && os) { url.searchParams.set("entry." + cfg.osEntry, os); }
+  if (cfg.deviceEntry && device) {
+    url.searchParams.set("entry." + cfg.deviceEntry, device);
+  }
+  action.innerHTML = '<a class="button" href="' + url.toString()
+    + '">Open the bug report form</a>';
+  document.getElementById("fallback").textContent =
+    "The form opens in Google Forms with your app version pre-filled.";
+} else {
+  action.innerHTML = '<a class="button" href="'
+    + window.STORYLEAF_CONFIG.fallbackIssuesUrl + '">Report on GitHub Issues</a>';
+  document.getElementById("fallback").textContent =
+    "The bug report form is being prepared. In the meantime, please report "
+    + "issues on GitHub and include the app info shown above.";
+}
+</script>
+
+<footer class="site">
+  <nav>
+    <a href="index.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="licenses.html">Licenses &amp; credits</a>
+  </nav>
+  <p>© 2026 Story Leaf</p>
+</footer>
+</div>
+</body>
+</html>

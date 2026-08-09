@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story Leaf — Feature Requests</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../config.js"></script>
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <p class="eyebrow">Story Leaf 🍃</p>
+  <h1>Feature Requests</h1>
+  <p>What would make Story Leaf better for you? More books, new features,
+  reading tools — we read every request.</p>
+</header>
+
+<p id="action"></p>
+<p class="note" id="fallback"></p>
+
+<script>
+const params = new URLSearchParams(location.search);
+const version = params.get("version") || "";
+
+const cfg = window.STORYLEAF_CONFIG.featureForm;
+const action = document.getElementById("action");
+if (cfg.formId) {
+  const url = new URL("https://docs.google.com/forms/d/e/" + cfg.formId + "/viewform");
+  url.searchParams.set("usp", "pp_url");
+  if (cfg.versionEntry && version) {
+    url.searchParams.set("entry." + cfg.versionEntry, version);
+  }
+  action.innerHTML = '<a class="button" href="' + url.toString()
+    + '">Open the request form</a>';
+} else {
+  action.innerHTML = '<a class="button" href="'
+    + window.STORYLEAF_CONFIG.fallbackIssuesUrl + '">Post on GitHub Issues</a>';
+  document.getElementById("fallback").textContent =
+    "The request form is being prepared. In the meantime, please post your "
+    + "ideas on GitHub Issues.";
+}
+</script>
+
+<footer class="site">
+  <nav>
+    <a href="index.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="licenses.html">Licenses &amp; credits</a>
+  </nav>
+  <p>© 2026 Story Leaf</p>
+</footer>
+</div>
+</body>
+</html>

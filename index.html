@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story Leaf Support</title>
+<script>
+// Language router: add more languages by creating /<lang>/ directories
+// (e.g. /ja/) and listing them here.
+const supported = ["en"];
+const preferred = (navigator.language || "en").slice(0, 2).toLowerCase();
+const lang = supported.includes(preferred) ? preferred : "en";
+location.replace(lang + "/" + location.search);
+</script>
+</head>
+<body>
+<p><a href="en/">Story Leaf Support (English)</a></p>
+</body>
+</html>
