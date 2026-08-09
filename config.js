@@ -17,5 +17,6 @@ window.STORYLEAF_CONFIG = {
     versionEntry: "",    // entry id of the "App version" field (optional)
   },
   // Shown while the forms above are not configured yet.
-  fallbackIssuesUrl: "https://github.com/ki-84/story_leaf/issues",
+  // (must be a PUBLIC repository — private repos return 404 to visitors)
+  fallbackIssuesUrl: "https://github.com/ki-84/story_leaf_support/issues",
 };
