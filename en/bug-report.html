@@ -49,7 +49,8 @@ if (cfg.formId) {
   action.innerHTML = '<a class="button" href="' + url.toString()
     + '">Open the bug report form</a>';
   document.getElementById("fallback").textContent =
-    "The form opens in Google Forms with your app version pre-filled.";
+    "Redirecting to the form with your app version pre-filled…";
+  setTimeout(function () { location.replace(url.toString()); }, 400);
 } else {
   action.innerHTML = '<a class="button" href="'
     + window.STORYLEAF_CONFIG.fallbackIssuesUrl + '">Report on GitHub Issues</a>';

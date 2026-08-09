@@ -33,6 +33,8 @@ if (cfg.formId) {
   }
   action.innerHTML = '<a class="button" href="' + url.toString()
     + '">Open the request form</a>';
+  document.getElementById("fallback").textContent = "Redirecting to the form…";
+  setTimeout(function () { location.replace(url.toString()); }, 400);
 } else {
   action.innerHTML = '<a class="button" href="'
     + window.STORYLEAF_CONFIG.fallbackIssuesUrl + '">Post on GitHub Issues</a>';
